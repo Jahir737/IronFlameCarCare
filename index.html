@@ -112,11 +112,17 @@
       text-align: center;
     }
     .hero-title {
-      font-size: 2.3rem;
-      font-weight: 900;
-      margin-top: 60px;
-      text-shadow: 2px 2px 0 #000, 0 4px 10px #000;
-      letter-spacing: 1.5px;
+  position: absolute;
+  top: 5%;      /* Move higher up the hero section */
+  left: 50%;
+  transform: translate(-50%, 0); /* Center horizontally */
+  font-size: 2.3rem;
+  font-weight: 900;
+  text-shadow: 2px 2px 0 #000, 0 4px 10px #000;
+  letter-spacing: 1.5px;
+  z-index: 2;
+}
+
     }
     .hero-quote {
       font-size: 1.08rem;
