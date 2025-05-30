@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IronFlame Car Care – Paint Protection Film Experts</title>
   <style>
+    /* Reset & base styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', sans-serif; background: #fafafa; color: #222; }
     a { color: inherit; text-decoration: none; }
 
+    /* Header */
     .main-header {
       background: #111;
       color: #f4d35e;
@@ -19,6 +21,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
     }
     .logo-container {
       display: flex;
@@ -47,6 +50,11 @@
       color: #fff;
       font-weight: bold;
       font-size: 1.08rem;
+      padding: 4px 0;
+      transition: color .2s;
+    }
+    .top-nav a:hover {
+      color: #f4d35e;
     }
     .hamburger {
       display: none;
@@ -64,6 +72,7 @@
       width: 100%;
       border-radius: 3px;
       background: #f4d35e;
+      transition: all 0.3s;
     }
     .mobile-nav {
       display: none;
@@ -73,6 +82,8 @@
       right: 0;
       background: #111;
       flex-direction: column;
+      gap: 0;
+      padding: 10px 0;
       z-index: 1001;
     }
     .mobile-nav a {
@@ -85,6 +96,7 @@
     .mobile-nav a:last-child { border-bottom: none; }
     .show { display: flex !important; }
 
+    /* Hero */
     .hero-banner {
       background: url('WhatsApp Image 2025-05-29 at 1.32.30 PM.jpeg') center/cover no-repeat;
       min-height: 420px;
@@ -95,29 +107,29 @@
       align-items: center;
       color: #fff;
       text-align: center;
-      padding-bottom: 60px;
+      padding-bottom: 80px;
     }
     .hero-title {
-      font-size: 1.9rem;
+      position: absolute;
+      top: 40px;
+      font-size: 2.2rem;
       font-weight: 900;
-      margin-bottom: auto;
-      margin-top: 40px;
       text-shadow: 2px 2px 0 #000, 0 4px 10px #000;
       letter-spacing: 1.5px;
     }
     .hero-quote {
-      font-size: 1.02rem;
-      margin: 14px 0 10px 0;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
       text-shadow: 1px 1px 3px #000;
-      background: rgba(0,0,0,0.2);
+      background: rgba(0,0,0,0.18);
+      display: inline-block;
       padding: 6px 16px;
       border-radius: 5px;
     }
     .cta-btn {
-      margin-top: 12px;
       background: #f4d35e;
       color: #111;
-      padding: 10px 24px;
+      padding: 10px 26px;
       font-size: 1rem;
       font-weight: bold;
       border: none;
@@ -128,16 +140,22 @@
     }
     .cta-btn:hover { background: #ffe88a; }
 
-    @media (max-width: 768px) {
+    /* Responsive images */
+    img { max-width: 100%; height: auto; }
+
+    /* Responsive tweaks */
+    @media (max-width: 750px) {
       .top-nav { display: none; }
       .hamburger { display: flex; }
-      .hero-title { font-size: 1.4rem; margin-top: 20px; }
+      .brand-name { font-size: 1.2rem;}
+      .hero-title { font-size: 1.2rem; top: 24px; }
       .hero-quote { font-size: 0.95rem; }
-      .cta-btn { font-size: 0.92rem; padding: 8px 18px; }
+      .cta-btn { padding: 9px 22px; font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header class="main-header">
     <div class="logo-container">
       <img src="logo.png" alt="IronFlame Logo" class="logo" />
@@ -164,18 +182,20 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero-banner" id="home">
     <h1 class="hero-title">Ultimate Paint Protection Film (PPF)</h1>
     <p class="hero-quote">Experience unbeatable defence against scratches, chips, and UV damage.</p>
     <button class="cta-btn" onclick="toggleModal()">Get a Free Quote</button>
   </section>
 
+  <!-- Scripts -->
   <script>
     function toggleNav() {
       document.getElementById('mobileNav').classList.toggle('show');
     }
     function toggleModal() {
-      alert("Modal triggered! Replace this with modal logic.");
+      alert("Quote modal would open here.");
     }
   </script>
 </body>
