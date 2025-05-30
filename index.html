@@ -3,181 +3,545 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IronFlame Car Care – PPF Experts</title>
+  <title>IronFlame Car Care – Paint Protection Film Experts</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
-      color: #111;
-    }
-    header {
+    /* Reset & base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #fafafa; color: #222; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Header */
+    .main-header {
       background: #111;
       color: #f4d35e;
-      padding: 15px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
     }
-    .logo-box {
+    .logo-container {
       display: flex;
       align-items: center;
     }
-    .logo-box img {
-      height: 50px;
+    .logo {
+      height: 48px;
       margin-right: 10px;
+      border: 2px solid #f4d35e;
+      border-radius: 8px;
+      padding: 3px;
+      background: #fff;
     }
-    nav {
+    .brand-name {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #f4d35e;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+    /* Desktop nav */
+    .top-nav {
+      display: flex;
+      gap: 25px;
+    }
+    .top-nav a {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.08rem;
+      padding: 4px 0;
+      transition: color .2s;
+    }
+    .top-nav a:hover {
+      color: #f4d35e;
+    }
+    /* Hamburger */
+    .hamburger {
       display: none;
       flex-direction: column;
-      background: #111;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px;
-      font-weight: bold;
-    }
-    .hamburger {
+      width: 36px;
+      height: 30px;
+      justify-content: center;
+      align-items: flex-end;
       cursor: pointer;
-      font-size: 30px;
+      gap: 5px;
     }
-
-    .hero {
-      position: relative;
-      background: url('hero-image.jpg') center/cover no-repeat;
-      height: 550px;
-      text-align: center;
+    .hamburger span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      border-radius: 3px;
+      background: #f4d35e;
+      transition: all 0.3s;
+    }
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: #111;
+      flex-direction: column;
+      gap: 0;
+      padding: 10px 0;
+      z-index: 1001;
+    }
+    .mobile-nav a {
       color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-bottom: 1px solid #222;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .show { display: flex !important; }
+
+    /* Hero */
+    .hero-banner {
+      background: url('WhatsApp Image 2025-05-29 at 1.32.30 PM.jpeg') center/cover no-repeat;
+      min-height: 420px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
     }
     .hero-title {
-      position: absolute;
-      top: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.5rem;
+      font-size: 2.3rem;
       font-weight: 900;
-      text-shadow: 2px 2px 5px black;
+      margin-top: 60px;
+      text-shadow: 2px 2px 0 #000, 0 4px 10px #000;
+      letter-spacing: 1.5px;
     }
     .hero-quote {
-      position: absolute;
-      bottom: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1rem;
-      padding: 0 20px;
+      font-size: 1.08rem;
+      margin: 22px 0 10px 0;
       text-shadow: 1px 1px 3px #000;
+      background: rgba(0,0,0,0.18);
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 5px;
     }
-    .cta {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
+    .cta-btn {
+      margin-top: 22px;
       background: #f4d35e;
       color: #111;
-      padding: 10px 20px;
+      padding: 13px 36px;
+      font-size: 1.12rem;
       font-weight: bold;
-      font-size: 0.95rem;
-      border-radius: 10px;
       border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #ffe88a; }
+
+    /* Responsive Images */
+    img { max-width: 100%; height: auto; }
+
+    /* Section containers */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px 16px;
     }
 
-    section {
-      padding: 30px 20px;
+    /* Benefit sections */
+    .benefit-main img { border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);}
+    .benefit-intro { font-size: 1.22rem; margin: 28px auto 20px auto; color: #333; text-align: center; max-width: 700px; }
+    .detailed-benefits { margin-top: 30px; }
+    .section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      background: #f7f7f7;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-wrap: wrap;
+      gap: 0;
+      padding: 24px 0;
     }
+    .section.alternate { flex-direction: row-reverse; background: #f1f1f1; }
+    .section .image {
+      flex: 1 1 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 120px;
+      padding: 8px;
+    }
+    .section .image img { border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);}
+    .section .text {
+      flex: 3;
+      padding: 10px 24px;
+      min-width: 200px;
+    }
+    .section h3 { margin-bottom: 10px; font-size: 1.42rem; color: #111; }
+    .section p { margin-bottom: 10px; font-size: 1.03rem; color: #333; line-height: 1.55; }
 
-    footer {
-      background: #111;
-      color: #ccc;
+    /* Services */
+    .services-block { text-align: center; padding: 46px 0; }
+    .services-block h2 { margin-bottom: 26px; font-size: 2rem; color: #111;}
+    .service-cards { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .service-cards .card {
+      flex: 1 1 210px;
+      max-width: 270px;
+      padding: 22px;
+      border-radius: 13px;
+      color: #fff;
+      min-width: 160px;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+      transition: transform .2s, filter .2s;
+    }
+    .ppf-card { background: #ff4c4c; }
+    .ceramic-card { background: #ffdd59; color: #111;}
+    .sunfilm-card { background: #32ff7e; color: #111;}
+    .detailing-card { background: #54a0ff; }
+    .card:hover { transform: translateY(-7px) scale(1.03); filter: brightness(.92);}
+    .service-icon { width: 64px; margin-bottom: 12px; }
+
+    /* Work Carousel (simplified for mobile) */
+    .work-section { background: #f9f9f9; text-align: center; padding: 48px 0; }
+    .work-section h2 { margin-bottom: 22px; font-size: 2rem; color: #111;}
+    .work-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      padding: 10px 0 12px 0;
+      scroll-snap-type: x mandatory;
+      justify-content: flex-start;
+      scrollbar-width: thin;
+    }
+    .carousel-item {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 170px;
+      border-radius: 10px;
+      overflow: hidden;
+      scroll-snap-align: center;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Enquire Now button + Modal */
+    .enquire-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #f4d35e;
+      color: #111;
+      padding: 16px 34px;
+      border: none;
+      border-radius: 24px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      cursor: pointer;
+      z-index: 2001;
+      transition: background .18s;
+    }
+    .enquire-btn:hover { background: #ffe88a; }
+    .modal {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.65); display: none;
+      align-items: center; justify-content: center; z-index: 2100;
+    }
+    .modal.active { display: flex; }
+    .modal-content {
+      background: #fff;
+      padding: 30px 18px;
+      border-radius: 10px;
+      width: 95%; max-width: 400px;
+      position: relative;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+      animation: fadeIn .25s;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.94);} to { opacity: 1; transform: scale(1);} }
+    .modal-content h2 { text-align: center; margin-bottom: 18px;}
+    .modal-content input, .modal-content select, .modal-content textarea {
+      width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc;
+      border-radius: 6px; font-size: 1rem;
+    }
+    .modal-content button[type="submit"] {
+      width: 100%; background: #111; color: #fff; padding: 12px;
+      border: none; border-radius: 6px; font-size: 1.08rem; font-weight: 700;
+      cursor: pointer; margin-top: 6px;
+    }
+    .close-btn {
+      position: absolute; top: 10px; right: 16px;
+      background: none; border: none; font-size: 2rem;
+      color: #aaa; cursor: pointer; z-index: 3;
     }
 
-    .contact a {
-      color: #f4d35e;
-      display: block;
-      margin-bottom: 8px;
+    /* Contact section */
+    .contact-section {
+      background: #111; color: #fff; padding: 50px 0;
+      display: flex; flex-wrap: wrap; gap: 30px;
+      justify-content: space-around; align-items: flex-start;
+    }
+    .contact-col { flex: 1 1 180px; min-width: 160px; }
+    .contact-col.about-col img { display: block; margin: 0 auto 12px auto; height: 60px;}
+    .contact-col h3 {
+      font-size: 1.1rem; border-bottom: 2px solid #f4d35e;
+      display: inline-block; padding-bottom: 4px; margin-bottom: 8px;
+    }
+    .contact-col p, .contact-col ul { margin-top: 8px; }
+    .contact-col ul { list-style: none; }
+    .contact-col ul li { margin-bottom: 8px; }
+    .contact-col ul li a { color: #fff; }
+    .contact-col ul li a:hover { color: #f4d35e;}
+    .main-footer {
+      background: #222; color: #ccc; text-align: center; padding: 18px 0;
+      font-size: 1.04rem; margin-top: 0;
     }
 
-    @media (min-width: 768px) {
-      nav {
-        display: flex !important;
-        flex-direction: row;
-        gap: 20px;
-      }
-      .hamburger {
-        display: none;
-      }
+    /* Mobile styles */
+    @media (max-width: 900px) {
+      .container { padding: 20px 5vw; }
+      .main-header { flex-direction: row; padding: 12px 6vw;}
+      .brand-name { font-size: 1.2rem;}
+      .hero-title { font-size: 1.4rem;}
+      .services-block h2, .work-section h2 { font-size: 1.32rem;}
+    }
+    @media (max-width: 750px) {
+      .main-header { flex-direction: row; }
+      .top-nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav { display: none; }
+      .container, .services-block, .work-section { padding-left: 4vw; padding-right: 4vw;}
+      .section, .section.alternate { flex-direction: column !important; align-items: stretch;}
+      .section .text { padding: 12px 3vw; min-width: 0; }
+      .contact-section { flex-direction: column; gap: 18px; padding: 36px 3vw;}
+      .carousel-item { width: 70vw; max-width: 270px; height: 140px;}
+      .benefit-intro { font-size: 1rem; }
+      .hero-banner { min-height: 270px;}
+      .enquire-btn { padding: 14px 18px; font-size: 1rem;}
+    }
+    @media (max-width: 480px) {
+      .brand-name { font-size: 1rem;}
+      .logo { height: 36px;}
+      .hero-title { font-size: 1rem;}
+      .hero-quote { font-size: 0.88rem;}
+      .modal-content { padding: 16px 2vw; }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="logo-box">
-      <img src="logo.png" alt="Logo">
-      <h1>IronFlame Car Care</h1>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="logo-container">
+      <img src="logo.png" alt="IronFlame Logo" class="logo" />
+      <span class="brand-name">IronFlame Car Care</span>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <nav id="navMenu">
+    <nav class="top-nav">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#benefits">Benefits</a>
+      <a href="#work">Work</a>
       <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#home" onclick="toggleNav()">Home</a>
+      <a href="#about" onclick="toggleNav()">About</a>
+      <a href="#services" onclick="toggleNav()">Services</a>
+      <a href="#benefits" onclick="toggleNav()">Benefits</a>
+      <a href="#work" onclick="toggleNav()">Work</a>
+      <a href="#contact" onclick="toggleNav()">Contact</a>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <div class="hero-title">Ultimate Paint Protection Film (PPF)</div>
-    <div class="hero-quote">Experience unbeatable defence against scratches, chips, and UV damage.</div>
-    <button class="cta">Get a Free Quote</button>
+  <!-- Hero -->
+  <section class="hero-banner" id="home">
+    <div class="container">
+      <h1 class="hero-title">Ultimate Paint Protection Film (PPF)</h1>
+      <p class="hero-quote">Experience unbeatable defence against scratches, chips, and UV damage.</p>
+      <button class="cta-btn" onclick="toggleModal()">Get a Free Quote</button>
+    </div>
   </section>
 
-  <section id="about">
-    <h2>About IronFlame Car Care</h2>
-    <p>IronFlame Car Care specializes in premium Paint Protection Film (PPF) solutions to protect your vehicle’s paint and maintain a stunning finish. We use cutting-edge technology to deliver the best results for your car.</p>
+  <!-- Benefit Main -->
+  <section class="benefit-main container" id="about">
+    <img src="benefit mainxx.jpg" alt="Benefits of using PPF">
   </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <p>We offer advanced Paint Protection Film, Ceramic Coating, Sunfilm Tinting, and Car Detailing to keep your car shining and protected, inside and out.</p>
+  <!-- Benefit Intro -->
+  <section class="benefit-intro container" id="benefits">
+    <p>Installing <strong>PPF (Paint Protection Film)</strong> on a car offers several benefits, including protection from scratches, stone chips, and UV damage, enhancing the car's appearance, and preserving resale value. It also makes the car easier to clean and maintain, and some PPFs have self-healing properties.</p>
   </section>
 
-  <section id="benefits">
-    <h2>Benefits of PPF</h2>
-    <p>Protect your investment from scratches, chips, UV rays, and harsh weather. Our PPF enhances gloss, offers self-healing properties, and preserves your car’s resale value.</p>
+  <!-- Detailed Benefits -->
+  <section class="detailed-benefits container">
+    <div class="section">
+      <div class="image"><img src="benefit main.jpg" alt="Protection Against Road Debris"></div>
+      <div class="text">
+        <h3>Protection Against Road Debris</h3>
+        <p>PPF shields the paint from scratches, stone chips, and other road debris, preventing damage from impacts.</p>
+        <h3>From UV Damage</h3>
+        <p>It protects the paint from harmful UV rays, preventing fading and discoloration.</p>
+        <h3>Against Chemicals and Corrosion</h3>
+        <p>PPF helps protect the paint from chemicals used in road maintenance (salt and sand) and from acidic bird droppings or acid rain.</p>
+      </div>
+    </div>
+    <div class="section alternate">
+      <div class="image"><img src="Benefit1.jpg" alt="Appearance Benefits"></div>
+      <div class="text">
+        <h3>Enhanced Gloss and Shine</h3>
+        <p>PPF can enhance the car's existing paint's gloss and shine, making it look newer for longer.</p>
+        <h3>Self-Healing Properties</h3>
+        <p>Some PPFs have self-healing properties that can repair minor scratches with heat.</p>
+        <h3>Resists Stains and Contaminants</h3>
+        <p>PPF resists stains and contaminants, making it easier to clean and maintain the car's appearance.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="image"><img src="benefit2.png" alt="Other Benefits"></div>
+      <div class="text">
+        <h3>Increased Resale Value</h3>
+        <p>Protecting the paint from damage helps preserve the car's original condition, potentially increasing its resale value.</p>
+        <h3>Ease of Cleaning</h3>
+        <p>PPF's hydrophobic nature makes it easier to clean and maintain, as water and dirt tend to bead up and roll off.</p>
+        <h3>Durable and Long-Lasting</h3>
+        <p>PPF is designed to last for several years, providing long-term protection for the car's paint.</p>
+      </div>
+    </div>
+    <div class="section alternate">
+      <div class="image"><img src="COLOR-PPF.webp" alt="Customizable & UV Protection"></div>
+      <div class="text">
+        <h3>Customizable</h3>
+        <p>PPF can be custom-cut to fit any make and model of car, and can be applied to specific areas prone to damage.</p>
+        <h3>Block Sun Damage</h3>
+        <p>The film offers UV protection, blocking harmful rays that can fade paint.</p>
+        <h3>Extends Paint's Lifespan</h3>
+        <p>By protecting the paint from scratches, stains, and environmental damage, PPF significantly extends its lifespan.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <a href="tel:+919902925244">📞 +91 99029 25244</a>
-    <a href="mailto:ironflamefire@gmail.com">📧 ironflamefire@gmail.com</a>
-    <a href="https://wa.me/919902925244">💬 WhatsApp Chat</a>
+  <!-- Services -->
+  <section id="services" class="services-block container">
+    <h2>Our Core Services</h2>
+    <div class="service-cards">
+      <div class="card ppf-card">
+        <img src="Untitled.jpg" class="service-icon" alt="PPF Icon">
+        <h3>Paint Protection Film</h3>
+        <p>Advanced self-healing film that keeps your paint pristine.</p>
+      </div>
+      <div class="card ceramic-card">
+        <img src="ceremic coating.jpg" class="service-icon" alt="Ceramic Icon">
+        <h3>Ceramic Coating</h3>
+        <p>Nano-ceramic layer for lasting shine and easy maintenance.</p>
+      </div>
+      <div class="card sunfilm-card">
+        <img src="sun film tinting.jpg" class="service-icon" alt="Sunfilm Icon">
+        <h3>Sunfilm Tinting</h3>
+        <p>Protect interiors and reduce heat with premium window films.</p>
+      </div>
+      <div class="card detailing-card">
+        <img src="car detailing.png" class="service-icon" alt="Detailing Icon">
+        <h3>Car Detailing</h3>
+        <p>Comprehensive interior & exterior detailing for showroom finish.</p>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    &copy; 2025 IronFlame Car Care. Designed with care by JAHIR ISLAM.
+  <!-- Work Carousel -->
+  <section id="work" class="work-section container">
+    <h2>Our Work</h2>
+    <div class="work-carousel">
+      <div class="carousel-item"><img src="Work2.jpg" alt="Work 2"></div>
+      <div class="carousel-item"><img src="Work3.jpg" alt="Work 3"></div>
+      <div class="carousel-item"><img src="Work4.jpg" alt="Work 4"></div>
+      <div class="carousel-item"><img src="Work5.jpg" alt="Work 5"></div>
+      <div class="carousel-item"><img src="Work6.jpg" alt="Work 6"></div>
+    </div>
+  </section>
+
+  <!-- Enquire Now -->
+  <button class="enquire-btn" onclick="toggleModal()">Enquire Now</button>
+  <div class="modal" id="enquireModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="toggleModal()">&times;</button>
+      <h2>Enquire Now</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="tel" placeholder="Phone" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Car Make and Model" required>
+        <select required>
+          <option value="">- Select Service -</option>
+          <option>Paint Protection Film</option>
+          <option>Ceramic Coating</option>
+          <option>Sunfilm Tinting</option>
+          <option>Car Detailing</option>
+        </select>
+        <textarea rows="4" placeholder="Your Message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <div class="contact-col about-col">
+      <img src="logo.png" alt="Logo">
+      <p>We are dedicated to delivering premium Paint Protection Film and coating services in Bangalore. Your trusted source for ultimate car protection and shine.</p>
+    </div>
+    <div class="contact-col address-col">
+      <h3>ADDRESS</h3>
+      <p><strong>📍 Sri Guru Raghavendra Complex</strong><br>Rajarajeshwari Nagar, Bengaluru, Karnataka 560098</p>
+    </div>
+    <div class="contact-col links-col">
+      <h3>QUICK LINKS</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="contact-col details-col">
+      <h3>CONTACT</h3>
+      <p>📞 <a href="tel:+919902925244">+91 99029 25244</a></p>
+      <p>💬 <a href="https://wa.me/919902925244">WhatsApp Chat</a></p>
+      <p>✉️ <a href="mailto:ironflamefire@gmail.com">ironflamefire@gmail.com</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>&copy; 2025 IronFlame Car Care. Designed with care by JAHIR ISLAM.</p>
   </footer>
 
   <script>
-    function toggleMenu() {
-      const nav = document.getElementById('navMenu');
-      if (nav.style.display === 'flex') {
-        nav.style.display = 'none';
-      } else {
-        nav.style.display = 'flex';
-      }
+    // Mobile Nav Hamburger
+    function toggleNav() {
+      document.getElementById('mobileNav').classList.toggle('show');
     }
+    // Modal Enquiry
+    function toggleModal() {
+      document.getElementById('enquireModal').classList.toggle('active');
+    }
+    // Close mobile nav on scroll or resize (for usability)
+    window.addEventListener('resize', function() {
+      if(window.innerWidth > 750) document.getElementById('mobileNav').classList.remove('show');
+    });
+    window.addEventListener('scroll', function() {
+      document.getElementById('mobileNav').classList.remove('show');
+    });
   </script>
-
 </body>
 </html>
