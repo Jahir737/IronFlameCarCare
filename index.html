@@ -4,113 +4,134 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IronFlame Car Care – Paint Protection Film Experts</title>
-  <style>
-    /* Reset & Base */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      padding-top: 90px; /* space for fixed header */
-      color: #333;
-      background: #fafafa;
-      line-height:1.5;
-    }
-    a { color: inherit; text-decoration:none; }
+ <style>
+  /* Reset & Base */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Segoe UI', sans-serif;
+    margin-top:100px;
+    color:#333;
+    background:#fafafa;
+  }
 
-    /* Fixed Header */
-    .main-header {
-      position: fixed; top:0; left:0; width:100%;
-      background:#111; display:flex; align-items:center;
-      justify-content:space-between; padding:10px 20px;
-      z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.5);
-      flex-wrap:wrap;
-    }
-    .logo-container {
-      display:flex; align-items:center;
-    }
-    .logo {
-      height:60px; margin-right:10px;
-      border:2px solid #f4d35e; border-radius:8px; padding:5px;
-      filter:brightness(1.2);
-    }
-    .brand-name {
-      color:#f4d35e; font-size:24px; font-weight:900;
-      text-shadow:1px 1px 2px rgba(0,0,0,0.5);
-    }
+  /* Fixed Header */
+  .main-header {
+    position:fixed; top:0; left:0; width:100%;
+    background:#111; padding:10px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.5);
+    flex-wrap:wrap;
+  }
+  .logo-container { display:flex; align-items:center; margin-bottom:10px; }
+  .logo {
+    height:60px; margin-right:10px;
+    border:2px solid #f4d35e; border-radius:8px; padding:5px;
+    filter:brightness(1.2);
+  }
+  .brand-name {
+    color:#f4d35e; font-size:24px; font-weight:900;
+    text-shadow:1px 1px 2px rgba(0,0,0,0.5);
+  }
+  .top-nav {
+    display:flex; flex-wrap:wrap; justify-content:center; gap:10px;
+  }
+  .top-nav a {
+    color:#fff; text-decoration:none; font-weight:bold;
+    margin:5px 10px; font-size:14px;
+  }
+
+  /* Hero */
+  .hero-banner {
+    position:relative;
+    background:url('WhatsApp Image 2025-05-29 at 1.32.30 PM.jpeg') center/cover no-repeat;
+    min-height:600px;
+  }
+  .hero-title {
+    position:absolute; top:12%; left:50%;
+    transform:translate(-50%, -12%);
+    color:#fff; font-size:2rem; font-weight:900;
+    -webkit-text-stroke:1px #000;
+    text-shadow:2px 2px 0 #000,4px 4px 0 #000;
+    white-space:nowrap; z-index:2;
+  }
+  .hero-quote {
+    position:absolute; bottom:80px; left:50%;
+    transform:translateX(-50%);
+    color:#fff; font-size:1rem;
+    text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+    text-align:center; width:90%; z-index:2;
+  }
+  .cta-btn {
+    position:absolute; bottom:20px; left:50%;
+    transform:translateX(-50%);
+    background:#f4d35e; color:#000;
+    padding:10px 20px; font-size:1rem;
+    border:none; border-radius:5px; cursor:pointer; z-index:2;
+  }
+
+  /* Benefit Main */
+  .benefit-main { text-align:center; padding:40px 20px; background:#000; }
+  .benefit-main img { max-width:100%; height:auto; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.3); }
+
+  /* Benefit Intro */
+  .benefit-intro {
+    padding:60px 20px; background:#fff; color:#333; text-align:center;
+  }
+  .benefit-intro p {
+    max-width:900px; margin:0 auto; font-size:1.2rem; line-height:1.5;
+  }
+
+  /* Detailed Benefits */
+  .detailed-benefits .section {
+    display:flex; align-items:center; gap:30px; padding:60px 20px; background:#f9f9f9;
+  }
+  .detailed-benefits .section.alternate { flex-direction:row-reverse; background:#f1f1f1; }
+  .detailed-benefits .image img {
+    width:100%; max-width:400px; height:auto;
+    border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  }
+  .detailed-benefits .text { flex:1; }
+  .detailed-benefits h3 {
+    margin-bottom:15px; font-size:1.8rem; color:#111;
+  }
+  .detailed-benefits p {
+    margin-bottom:10px; font-size:1rem; color:#333; line-height:1.6;
+  }
+
+  /* Services, Carousel, Modal, Contact, Footer (keep your existing rules here) */
+
+  /* Global Responsive tweaks */
+  @media screen and (max-width:768px) {
+    /* Header nav becomes vertical */
     .top-nav {
-      display:flex; gap:15px;
+      flex-direction:column;
+      align-items:flex-start;
+      width:100%;
     }
-    .top-nav a {
-      color:#fff; font-weight:bold; font-size:16px;
-      padding:5px;
-    }
+    .top-nav a { margin:8px 0; }
 
-    /* Hero */
-    .hero-banner {
-      position:relative;
-      background:url('WhatsApp Image 2025-05-29 at 1.32.30 PM.jpeg') center/cover no-repeat;
-      min-height:400px;
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
+    /* Hero text smaller */
+    .hero-title { font-size:1.5rem; }
+    .hero-quote { font-size:0.9rem; }
+    .cta-btn { font-size:0.9rem; padding:8px 16px; }
+
+    /* Stack each benefit section */
+    .detailed-benefits .section,
+    .detailed-benefits .section.alternate {
+      flex-direction:column !important;
       text-align:center;
     }
-    .hero-title {
-      color:#fff; font-size:2.5rem; font-weight:900;
-      text-shadow:2px 2px 4px rgba(0,0,0,0.7);
-      margin-bottom:0.5rem;
-    }
-    .hero-quote {
-      color:#fff; font-size:1.1rem;
-      text-shadow:1px 1px 3px rgba(0,0,0,0.7);
-      margin-bottom:1rem; max-width:90%;
-    }
-    .cta-btn {
-      background:#f4d35e; color:#000;
-      padding:12px 24px; font-size:1rem;
-      border:none; border-radius:5px; cursor:pointer;
+    .detailed-benefits .image,
+    .detailed-benefits .text {
+      width:100%;
     }
 
-    /* Benefit Main + Intro */
-    .benefit-main {
-      padding:40px 20px; text-align:center;
+    /* Enquire button lower */
+    .enquire-btn {
+      bottom:20px; right:20px;
     }
-    .benefit-main img {
-      max-width:100%; height:auto; border-radius:8px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.2);
-    }
-    .benefit-intro {
-      background:#fff; padding:30px 20px;
-      text-align:center; font-size:1.1rem;
-    }
-
-    /* Detailed Benefits */
-    .detailed-benefits {
-      background:#f1f1f1; padding:40px 20px;
-    }
-    .detailed-benefits .section {
-      display:flex; align-items:center; gap:30px;
-      margin-bottom:40px;
-    }
-    .detailed-benefits .section.alternate {
-      flex-direction:row-reverse;
-    }
-    .detailed-benefits .image img {
-      width:100%; max-width:400px; border-radius:8px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    }
-    .detailed-benefits .text { flex:1; }
-    .detailed-benefits h3 {
-      font-size:1.8rem; margin-bottom:0.5rem; color:#111;
-    }
-    .detailed-benefits p {
-      margin-bottom:1rem; font-size:1rem; color:#333;
-    }
-
-    /* Services */
-    .services-block {
-      padding:60px 20px; background:#fff; text-align:center;
-    }
-    .services-block h2 {
-      font-size:2.5rem; margin-bottom:30px;
+  }
+</style>
     }
     .service-cards {
       display:flex; flex-wrap:wrap; gap:20px;
