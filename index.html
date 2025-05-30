@@ -3,276 +3,181 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IronFlame Car Care – Paint Protection Film Experts</title>
+  <title>IronFlame Car Care – PPF Experts</title>
   <style>
-    /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fafafa; color: #222; }
-
-    /* Header */
-    .header {
-      width: 100%;
-      background: #151515;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      color: #111;
+    }
+    header {
+      background: #111;
       color: #f4d35e;
+      padding: 15px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 12px 18px;
+      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 999;
     }
-    .header-left {
+    .logo-box {
       display: flex;
       align-items: center;
     }
-    .header-logo {
-      height: 58px;
-      margin-right: 14px;
-      border: 3px solid #f4d35e;
-      border-radius: 10px;
-      padding: 5px;
-      background: #222;
+    .logo-box img {
+      height: 50px;
+      margin-right: 10px;
     }
-    .header-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #f4d35e;
-      letter-spacing: .5px;
-      line-height: 1.1;
-      text-shadow: 1px 1px 3px #000c;
+    nav {
+      display: none;
+      flex-direction: column;
+      background: #111;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      font-weight: bold;
     }
     .hamburger {
-      display: block;
       cursor: pointer;
-    }
-    .bar {
-      display: block;
-      width: 34px;
-      height: 5px;
-      margin: 6px 0;
-      background: #f4d35e;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-    .nav {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 230px;
-      background: #181818;
-      box-shadow: -2px 0 10px #0008;
-      padding-top: 82px;
-      z-index: 99;
-      flex-direction: column;
-      gap: 18px;
-      align-items: start;
-      transition: right 0.3s;
-    }
-    .nav.active { display: flex; }
-    .nav a {
-      color: #fff;
-      padding: 12px 30px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      transition: background .16s, color .16s;
-    }
-    .nav a:hover {
-      color: #f4d35e;
-      background: #222;
-      border-radius: 4px;
-    }
-    @media (min-width: 800px) {
-      .hamburger { display: none; }
-      .nav {
-        position: static;
-        display: flex !important;
-        flex-direction: row;
-        height: auto;
-        width: auto;
-        background: transparent;
-        box-shadow: none;
-        padding-top: 0;
-        gap: 30px;
-        align-items: center;
-      }
-      .nav a { padding: 0 6px; font-size: 1.09rem; background: none; color: #fff; }
+      font-size: 30px;
     }
 
-    /* Hero Section */
     .hero {
       position: relative;
-      width: 100vw;
-      min-height: 420px;
-      background: url('WhatsApp Image 2025-05-29 at 1.32.30 PM.jpeg') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      overflow: hidden;
-      margin-bottom: 0;
-      padding-top: 0;
+      background: url('hero-image.jpg') center/cover no-repeat;
+      height: 550px;
+      text-align: center;
+      color: #fff;
     }
     .hero-title {
       position: absolute;
+      top: 5%;
       left: 50%;
-      top: 5%;   /* Moved up above Iron Man's head */
-      transform: translate(-50%, 0);
-      color: #fff;
-      font-size: 1.65rem;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
       font-weight: 900;
-      text-shadow: 2px 2px 8px #000c, 0 2px 6px #000b;
-      -webkit-text-stroke: 1.5px #181818;
-      white-space: pre-line;
-      text-align: center;
-      z-index: 2;
-      letter-spacing: .02em;
+      text-shadow: 2px 2px 5px black;
     }
-    .hero-sub {
+    .hero-quote {
       position: absolute;
+      bottom: 100px;
       left: 50%;
-      top: 18%;
-      transform: translate(-50%, 0);
-      color: #fff;
-      font-size: 1.08rem;
-      font-weight: 400;
-      text-shadow: 1px 1px 5px #0009;
-      width: 88vw;
-      max-width: 440px;
-      text-align: center;
-      z-index: 2;
-    }
-    .hero-btn {
-      position: absolute;
-      left: 50%;
-      bottom: 30px;
-      transform: translate(-50%, 0);
-      padding: 15px 42px;
-      background: #f4d35e;
-      color: #181818;
-      font-weight: 800;
-      font-size: 1.18rem;
-      border: none;
-      border-radius: 18px;
-      box-shadow: 0 5px 24px #0002;
-      cursor: pointer;
-      z-index: 3;
-      transition: box-shadow 0.14s, background 0.14s, color 0.14s, transform .16s;
-      opacity: 0.97;
-    }
-    .hero-btn:active { transform: translate(-50%, 2px) scale(0.97); }
-
-    /* Make button smaller and less tall on mobile */
-    @media (max-width: 600px) {
-      .hero-title { font-size: 1.09rem; top: 3.5%; }
-      .hero-sub { font-size: .99rem; top: 13.5%; }
-      .hero-btn { font-size: 1.04rem; padding: 11px 22px; border-radius: 13px; bottom: 13px; }
-      .header-title { font-size: 1.19rem; }
-      .header-logo { height: 44px; }
-    }
-
-    /* Simple content area styles */
-    .content { max-width: 900px; margin: 0 auto; padding: 24px 14px 60px 14px; }
-    .section { margin-bottom: 40px; }
-    .section h2 { color: #181818; font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; }
-    .section p { font-size: 1.07rem; line-height: 1.6; margin-bottom: 7px; color: #282828; }
-
-    /* Footer */
-    .footer {
-      background: #181818;
-      color: #eee;
-      text-align: center;
+      transform: translateX(-50%);
       font-size: 1rem;
-      padding: 30px 5px 18px 5px;
-      letter-spacing: 0.01em;
+      padding: 0 20px;
+      text-shadow: 1px 1px 3px #000;
+    }
+    .cta {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f4d35e;
+      color: #111;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      border-radius: 10px;
+      border: none;
     }
 
+    section {
+      padding: 30px 20px;
+    }
+
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    .contact a {
+      color: #f4d35e;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        flex-direction: row;
+        gap: 20px;
+      }
+      .hamburger {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header-left">
-      <img src="logo.png" class="header-logo" alt="IronFlame Logo"/>
-      <span class="header-title">IronFlame Car Care</span>
+
+  <header>
+    <div class="logo-box">
+      <img src="logo.png" alt="Logo">
+      <h1>IronFlame Car Care</h1>
     </div>
-    <div class="hamburger" onclick="toggleNav()">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <nav class="nav" id="mainNav">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav id="navMenu">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#benefits">Benefits</a>
-      <a href="#work">Work</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-title">Ultimate Paint Protection Film (PPF)</div>
-    <div class="hero-sub">Experience unbeatable defence against scratches, chips, and UV damage.</div>
-    <button class="hero-btn">Get a Free Quote</button>
+    <div class="hero-quote">Experience unbeatable defence against scratches, chips, and UV damage.</div>
+    <button class="cta">Get a Free Quote</button>
   </section>
 
-  <!-- Content: Example Sections (use your real content here) -->
-  <main class="content">
-    <section class="section" id="about">
-      <h2>About IronFlame Car Care</h2>
-      <p>
-        IronFlame Car Care specializes in premium Paint Protection Film (PPF) solutions to protect your vehicle’s paint and maintain a stunning finish. We use cutting-edge technology to deliver the best results for your car.
-      </p>
-    </section>
-    <section class="section" id="services">
-      <h2>Our Services</h2>
-      <p>
-        We offer advanced Paint Protection Film, Ceramic Coating, Sunfilm Tinting, and Car Detailing to keep your car shining and protected, inside and out.
-      </p>
-    </section>
-    <section class="section" id="benefits">
-      <h2>Benefits of PPF</h2>
-      <p>
-        Protect your investment from scratches, chips, UV rays, and harsh weather. Our PPF enhances gloss, offers self-healing properties, and preserves your car’s resale value.
-      </p>
-    </section>
-    <section class="section" id="work">
-      <h2>Our Work</h2>
-      <p>
-        Browse our portfolio to see stunning results and satisfied customers.
-      </p>
-    </section>
-    <section class="section" id="contact">
-      <h2>Contact Us</h2>
-      <p>
-        📞 <a href="tel:+919902925244" style="color:#f4d35e;">+91 99029 25244</a> <br/>
-        ✉️ <a href="mailto:ironflamefire@gmail.com" style="color:#f4d35e;">ironflamefire@gmail.com</a> <br/>
-        💬 <a href="https://wa.me/919902925244" style="color:#f4d35e;">WhatsApp Chat</a>
-      </p>
-    </section>
-  </main>
+  <section id="about">
+    <h2>About IronFlame Car Care</h2>
+    <p>IronFlame Car Care specializes in premium Paint Protection Film (PPF) solutions to protect your vehicle’s paint and maintain a stunning finish. We use cutting-edge technology to deliver the best results for your car.</p>
+  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>We offer advanced Paint Protection Film, Ceramic Coating, Sunfilm Tinting, and Car Detailing to keep your car shining and protected, inside and out.</p>
+  </section>
+
+  <section id="benefits">
+    <h2>Benefits of PPF</h2>
+    <p>Protect your investment from scratches, chips, UV rays, and harsh weather. Our PPF enhances gloss, offers self-healing properties, and preserves your car’s resale value.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <a href="tel:+919902925244">📞 +91 99029 25244</a>
+    <a href="mailto:ironflamefire@gmail.com">📧 ironflamefire@gmail.com</a>
+    <a href="https://wa.me/919902925244">💬 WhatsApp Chat</a>
+  </section>
+
+  <footer>
     &copy; 2025 IronFlame Car Care. Designed with care by JAHIR ISLAM.
   </footer>
 
   <script>
-    // Hamburger Nav Toggle
-    function toggleNav() {
-      document.getElementById('mainNav').classList.toggle('active');
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+      }
     }
-    // Optional: close nav when clicking a link (mobile UX)
-    document.querySelectorAll('.nav a').forEach(link =>
-      link.addEventListener('click', () =>
-        document.getElementById('mainNav').classList.remove('active')
-      )
-    );
   </script>
+
 </body>
 </html>
