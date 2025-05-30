@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IronFlame Car Care – Paint Protection Film Experts</title>
   <style>
+    /* Reset & Base */
     * {
       margin: 0;
       padding: 0;
@@ -16,6 +17,8 @@
       color: #333;
       background: #fafafa;
     }
+
+    /* Fixed Header */
     .main-header {
       position: fixed;
       top: 0;
@@ -27,7 +30,7 @@
       align-items: center;
       justify-content: space-between;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
       flex-wrap: wrap;
     }
     .logo-container {
@@ -36,18 +39,18 @@
       margin-bottom: 10px;
     }
     .logo {
-      height: 60px;
+      height: 90px;
       margin-right: 10px;
-      border: 2px solid #f4d35e;
+      border: 3px solid #f4d35e;
       border-radius: 8px;
       padding: 5px;
       filter: brightness(1.2);
     }
     .brand-name {
       color: #f4d35e;
-      font-size: 24px;
+      font-size: 32px;
       font-weight: 900;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
     .top-nav {
       display: flex;
@@ -62,54 +65,68 @@
       margin: 5px 10px;
       font-size: 14px;
     }
+
+    /* Hero */
     .hero-banner {
       position: relative;
       background: url('WhatsApp Image 2025-05-29 at 1.32.30 PM.jpeg') center/cover no-repeat;
-      min-height: 600px;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
+      padding: 20px;
     }
     .hero-title {
       color: #fff;
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: 900;
       -webkit-text-stroke: 1px #000;
       text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;
+      margin-bottom: 10px;
     }
     .hero-quote {
       color: #fff;
-      font-size: 1rem;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-      margin-top: 10px;
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      max-width: 80%;
+      margin-bottom: 20px;
     }
     .cta-btn {
-      margin-top: 20px;
       background: #f4d35e;
       color: #000;
-      padding: 10px 20px;
+      padding: 15px 30px;
       font-size: 1rem;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-    img {
-      max-width: 100%;
-      height: auto;
+
+    /* Benefit Main */
+    .benefit-main {
+      text-align: center;
+      padding: 40px 20px;
     }
     .benefit-main img {
-      display: block;
-      margin: auto;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
+
+    /* Benefit Intro */
     .benefit-intro {
-      background: #fff9e6;
-      padding: 30px 20px;
+      background: #000;
+      color: #fff;
+      padding: 50px 20px;
       text-align: center;
-      font-size: 1.1rem;
-      color: #222;
+      font-size: 1.3rem;
+      line-height: 1.6;
     }
+    .benefit-intro p { max-width: 800px; margin: auto; }
+
+    /* Detailed Benefits */
     .detailed-benefits .section {
       display: flex;
       flex-wrap: wrap;
@@ -117,59 +134,117 @@
       gap: 30px;
       padding: 60px 20px;
     }
-    .detailed-benefits .section.alternate {
-      flex-direction: row-reverse;
-      background: #f1f1f1;
-    }
-    .detailed-benefits .image {
-      flex: 1 1 300px;
-    }
-    .detailed-benefits .image img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .detailed-benefits .text {
-      flex: 1 1 300px;
-    }
-    .detailed-benefits h3 {
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      color: #111;
-    }
-    .detailed-benefits p {
-      margin-bottom: 10px;
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.6;
-    }
-    @media screen and (max-width: 768px) {
-      .detailed-benefits .section {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-title {
-        font-size: 1.5rem;
-      }
-      .hero-quote {
-        font-size: 0.9rem;
-      }
-      .cta-btn {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-      }
-      .top-nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .detailed-benefits .section.alternate { flex-direction: row-reverse; background: #f1f1f1; }
+    .detailed-benefits .image { flex:1 1 300px; text-align:center; }
+    .detailed-benefits .image img { width:100%; max-width:400px; height:auto; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .detailed-benefits .text { flex:1 1 300px; }
+    .detailed-benefits h3 { margin-bottom:15px; font-size:1.6rem; color:#111; }
+    .detailed-benefits p { margin-bottom:10px; font-size:1rem; color:#333; line-height:1.6; }
+
+    /* Services */
+    .services-block { padding:60px 20px; text-align:center; }
+    .service-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .service-cards .card { flex:1 1 220px; padding:20px; background:#444; color:#fff; border-radius:10px; transition:transform .3s; }
+    .service-cards .card:hover { transform:translateY(-5px); }
+    .service-icon { width:80px; margin-bottom:15px; }
+
+    /* Work Carousel */
+    .work-carousel { display:flex; overflow-x:auto; gap:20px; padding:20px; scroll-snap-type:x mandatory; }
+    .carousel-item { flex:0 0 auto; width:250px; height:250px; scroll-snap-align:center; overflow:hidden; border-radius:10px; }
+    .carousel-item img { width:100%; height:100%; object-fit:cover; }
+
+    /* Enquire Modal */
+    .enquire-btn { position:fixed; bottom:30px; right:30px; background:#f4d35e; color:#000; padding:15px 25px; border:none; border-radius:50px; box-shadow:0 2px 10px rgba(0,0,0,0.3); cursor:pointer; }
+    .modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:none; align-items:center; justify-content:center; }
+    .modal.active { display:flex; }
+    .modal-content { background:#fff; padding:30px; border-radius:8px; width:90%; max-width:500px; position:relative; }
+    .close-btn { position:absolute; top:10px; right:10px; background:transparent; border:none; font-size:1.5rem; cursor:pointer; }
+    .enquire-form input, .enquire-form select, .enquire-form textarea { width:100%; margin-bottom:15px; padding:12px; border:1px solid#ccc; border-radius:5px; font-size:1rem; }
+    .enquire-form button { width:100%; padding:15px; background:#111; color:#fff; border:none; border-radius:5px; font-size:1.1rem; cursor:pointer; }
+
+    /* Contact Grid */
+    .contact-section { background:#111; color:#fff; padding:60px 20px; display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; }
+    .contact-col { flex:1 1 220px; }
+    .contact-col h3 { margin-bottom:10px; border-bottom:2px solid #f4d35e; padding-bottom:4px; }
+    .contact-col a { color:#fff; text-decoration:none; }
+    .contact-col a:hover { color:#f4d35e; }
+
+    /* Footer */
+    .main-footer { background:#222; color:#ccc; text-align:center; padding:20px; }
+
+    /* Responsive */
+    @media only screen and (max-width:768px) {
+      .detailed-benefits .section { flex-direction:column; }
+      .top-nav { flex-direction:column; }
+      .service-cards, .contact-section { flex-direction:column; align-items:center; }
     }
   </style>
 </head>
-<body>
-<!-- Full content remains unchanged except CSS structure optimized -->
-<!-- You can now copy this and paste into GitHub safely -->
-<!-- Site will look good on both desktop and mobile now -->
+<body id="home">
+  <header class="main-header">
+    <div class="logo-container">
+      <img src="logo.png" alt="IronFlame Logo" class="logo">
+      <span class="brand-name">IronFlame Car Care</span>
+    </div>
+    <nav class="top-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero-banner">
+    <h1 class="hero-title">Ultimate Paint Protection Film (PPF)</h1>
+    <p class="hero-quote">Experience unbeatable defence against scratches, chips, and UV damage.</p>
+    <button class="cta-btn">Get a Free Quote</button>
+  </section>
+
+  <section class="benefit-main">
+    <img src="benefit mainxx.jpg" alt="Benefits of using PPF">
+  </section>
+
+  <section class="benefit-intro">
+    <p>Installing <strong>PPF (Paint Protection Film)</strong> on a car offers several benefits, including protection from scratches, stone chips, and UV damage, enhancing the car's appearance, and preserving resale value. It also makes the car easier to clean and maintain, and some PPFs have self-healing properties.</p>
+  </section>
+
+  <section class="detailed-benefits">
+    <!-- Detailed sections here... -->
+  </section>
+
+  <section id="services" class="services-block">
+    <!-- Services here... -->
+  </section>
+
+  <section id="work" class="work-section">
+    <!-- Carousel here... -->
+  </section>
+
+  <button class="enquire-btn" onclick="toggleModal()">Enquire Now</button>
+  <div class="modal" id="enquireModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="toggleModal()">&times;</button>
+      <h2>Enquire Now</h2>
+      <form class="enquire-form">
+        <!-- Form fields here... -->
+      </form>
+    </div>
+  </div>
+
+  <section id="contact" class="contact-section">
+    <!-- Contact grid here... -->
+  </section>
+
+  <footer class="main-footer">
+    <p>&copy; 2025 IronFlame Car Care. Designed with care by JAHIR ISLAM.</p>
+  </footer>
+
+  <script>
+    function toggleModal() {
+      document.getElementById('enquireModal').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
