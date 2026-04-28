@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 70">
+  <!-- Gold shield icon -->
+  <path d="M10 8 L52 8 L52 40 Q52 55 31 64 Q10 55 10 40 Z" fill="#f4d35e" stroke="#c8a800" stroke-width="1.2"/>
+
+  <!-- Car body (top) -->
+  <path d="M18 38 L21 30 L27 25 L35 25 L41 30 L44 38 Z" fill="#1a1a1a"/>
+  <!-- Car body (bottom) -->
+  <rect x="16" y="38" width="30" height="7" rx="1.5" fill="#1a1a1a"/>
+  <!-- Windshield highlight -->
+  <path d="M23 30 L25.5 26.5 L34.5 26.5 L37 30 Z" fill="rgba(255,255,255,0.35)"/>
+  <!-- Wheels -->
+  <circle cx="23" cy="45" r="4" fill="#555" stroke="#f4d35e" stroke-width="1.8"/>
+  <circle cx="39" cy="45" r="4" fill="#555" stroke="#f4d35e" stroke-width="1.8"/>
+  <!-- Wheel hubs -->
+  <circle cx="23" cy="45" r="1.5" fill="#f4d35e"/>
+  <circle cx="39" cy="45" r="1.5" fill="#f4d35e"/>
+
+  <!-- Thin vertical divider -->
+  <line x1="66" y1="12" x2="66" y2="58" stroke="#f4d35e" stroke-width="1" opacity="0.5"/>
+
+  <!-- MOTO text -->
+  <text x="77" y="37" font-family="Arial Black, Impact, sans-serif" font-size="23" font-weight="900" fill="#f4d35e" letter-spacing="2">MOTO</text>
+  <!-- XPERTZ text -->
+  <text x="78" y="58" font-family="Arial Black, Impact, sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="5">XPERTZ</text>
+
+  <!-- Gold underline accent -->
+  <rect x="77" y="62" width="126" height="1.8" rx="1" fill="#f4d35e" opacity="0.55"/>
+</svg>
